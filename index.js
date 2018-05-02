@@ -1,5 +1,7 @@
 const http = require('http');
 
+const PORT = process.env.PORT || 5000;
+
 // start the web server
 http
   .createServer((request, response) => {
@@ -9,7 +11,6 @@ http
     response.write('<h1>our first node page</h1>');
     response.end('<h2>Ending the response</h2>');
   })
-  .listen(process.env.PORT || 5000); // listening to port 3000
-
-// display message in command prompt
-console.log('Server running (perhaps on port 5000)');
+  .listen(PORT, () => {
+    console.log(`Server running on ${PORT}/`);
+  });
